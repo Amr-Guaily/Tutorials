@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Tabs</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body class="flex">
+    <div class="container flex">
+      <div class="icon flex">
+        <div class="iconBx flex active" data-id="content1">
+          <img src="/Google.jpg" alt="Google" />
+        </div>
+        <div class="iconBx flex" data-id="content2">
+          <img src="/Facebook.png" alt="Facebook" />
+        </div>
+        <div class="iconBx flex" data-id="content3">
+          <img src="/Twitter.png" alt="Twitter" />
+        </div>
+        <div class="iconBx flex" data-id="content4">
+          <img src="/Yahoo!.png" alt="Yahoo!" />
+        </div>
+      </div>
+      <div class="content">
+        <div class="contentBx flex active" id="content1">
+          <div class="text">
+            <h2>Google Content</h2>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+              dolor id itaque facere excepturi quos doloremque? Ratione alias
+              perferendis sequi ut temporibus facilis asperiores? Dolore veniam
+              perspiciatis mollitia sed exercitationem quas quam modi dolor eius
+              cumque aut nihil unde minima vitae, eum ab amet?
+            </p>
+          </div>
+        </div>
+        <div class="contentBx flex" id="content2">
+          <div class="text">
+            <h2>Facebook Content</h2>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+              dolor id itaque facere excepturi quos doloremque? Ratione alias
+              perferendis sequi ut temporibus facilis asperiores? Dolore veniam
+              perspiciatis mollitia sed exercitationem quas quam modi dolor eius
+              cumque aut nihil unde minima vitae, eum ab amet? Impedit qui,
+              deserunt optio quia amet illo.
+            </p>
+          </div>
+        </div>
+        <div class="contentBx flex" id="content3">
+          <div class="text">
+            <h2>Twitter Content</h2>
+            <p>
+              Incidunt dolor id itaque facere excepturi quos doloremque? Ratione
+              alias perferendis sequi ut temporibus facilis asperiores? Dolore
+              veniam perspiciatis mollitia sed exercitationem quas quam modi
+              dolor eius cumque aut nihil unde minima vitae, eum ab amet?
+              Impedit qui, deserunt optio quia amet illo, delectus quae maxime
+              ipsa neque eaque architecto exercitationem.
+            </p>
+          </div>
+        </div>
+        <div class="contentBx flex" id="content4">
+          <div class="text">
+            <h2>Yahoo! Content</h2>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+              dolor id itaque facere excepturi quos doloremque? Ratione alias
+              perferendis sequi ut temporibus facilis asperiores? eum ab amet?
+              Impedit qui, deserunt optio quia amet illo, delectus quae maxime
+              ipsa neque eaque architecto exercitationem.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let icons = document.querySelectorAll('.iconBx');
+      let contents = document.querySelectorAll('.contentBx');
+
+      icons.forEach((icon) => {
+        icon.addEventListener('click', function (e) {
+          icons.forEach((icon) => {
+            icon.classList.remove('active');
+          });
+
+          e.currentTarget.classList.add('active');
+
+          contents.forEach((content) => {
+            content.classList.remove('active');
+          });
+          // console.log(e.currentTarget.dataset.id);   Output: content1, content2 ..
+          document
+            .getElementById(e.currentTarget.dataset.id)
+            .classList.add('active');
+        });
+      });
+
+      // Another Solution (Using: "ForLoop" instead of "forEach" & "className" instead of "classList")..
+
+      // for (let i = 0; i < icons.length; i++) {
+      //   icons[i].addEventListener('click', function (e) {
+      //     for (let i = 0; i < icons.length; i++) {
+      //       icons[i].className = 'iconBx flex';
+      //     }
+
+      //     // e.currentTarget === this === icons[i];
+      //     e.currentTarget.className = 'iconBx flex active';
+
+      //     for (let i = 0; i < contents.length; i++) {
+      //       contents[i].className = 'contentBx flex';
+      //     }
+      //     document.getElementById(e.currentTarget.dataset.id).className =
+      //       'contentBx flex active';
+      //   });
+      // }
+    </script>
+  </body>
+</html>

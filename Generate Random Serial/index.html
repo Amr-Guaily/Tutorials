@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generate Random Serial</title>
+  </head>
+  <body>
+    <div
+      class="serial"
+      style="
+        width: 200px;
+        padding: 20px;
+        background-color: #eee;
+        margin: 40px auto 0;
+        border-radius: 4px;
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        height: 66.5px;
+      "
+    ></div>
+    <span
+      class="generate"
+      style="
+        display: block;
+        width: fit-content;
+        margin: 20px auto;
+        background-color: #ff5722;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.2s;
+        user-select: none;
+      "
+      >Generate</span
+    >
+    <script>
+      let btn = document.querySelector('.generate');
+      let serial = document.querySelector('.serial');
+
+      // Set characters, from them we create the serial..
+      const smallChar = [];
+      for (let i = 97; i <= 122; i++) {
+        smallChar.push(String.fromCharCode(i));
+      }
+      const bigChar = smallChar.map((char) => char.toUpperCase(char));
+      const characters = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].concat(
+        smallChar,
+        bigChar
+      );
+
+      // Set serial characters count..
+      let charCount = 15;
+
+      btn.addEventListener('click', function () {
+        // Create empty variable to store the serial..
+        let serialHolder = '';
+        // Loop in characters to get random..
+        for (let i = 0; i < charCount; i++) {
+          serialHolder +=
+            characters[Math.floor(Math.random() * characters.length)];
+        }
+        serial.innerHTML = serialHolder;
+      });
+    </script>
+  </body>
+</html>

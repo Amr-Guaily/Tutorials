@@ -1,0 +1,22 @@
+body {
+  height: 4000px;
+}
+.up {
+  position: fixed;
+  bottom: 10px;
+  /* bottom: 800px; */
+  right: -30px;
+  background-color: #ff5722;
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 6px;
+  border-radius: 4px;
+  font-family: Arial, Tahoma;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.up.active {
+  right: 10px;
+  /* bottom: 40px; */
+}
